@@ -5,12 +5,10 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState,ContentState,convertToRaw } from 'draft-js';
+import { EditorState,convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
 import {stateFromHTML} from 'draft-js-import-html';
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { createChainedFunction } from '@material-ui/core';
 
 export default class Email extends React.Component {
   constructor(props) {

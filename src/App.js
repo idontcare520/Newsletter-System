@@ -65,42 +65,11 @@ class App extends React.Component {
     }
   }
 
-
-  // function MergedTable(){
-
-  //   var col = [
-  //     {field:'Email',headerName:'Email',width:150},
-  //     {field:'IOM',headerName:'IOM',width:150},
-  //     {field:'LinkedInURL',headerName:'LinkedInURL',width:150},
-  //     {field:'Location',headerName:'Location',width:150},
-  //     {field:'Seniority',headerName:'Seniority',width:150},
-  //     {field:'Talent_Name',headerName:'Talent_Name',width:150},
-  //     {field:'TechStack',headerName:'TechStack',width:150}
-  //   ]
-
-  //   var row = []
-  //   const loadData = () =>{
-  //     console.log(talents)
-  //     if(talents!=null) row = talents;
-  //   }
-
-  //   return(
-  //     <React.Fragment>
-  //       <Button className={"loadButton"} variant="outlined" color="primary" onClick={loadData}>Load Data</Button>
-  //       <DataGrid rows={row} columns={col} />
-  //     </React.Fragment>
-  //   )
-  // }
-
       loadData = () =>{
-        //console.log(this.talents)
-        // var tmp = [
-        //   {id:1,Email:'email',IOM:'iom',LinkedInURL:'url',Location:'location',Seniority:'sens',Talent_Name:'name',TechStack:'stack'}
-        // ]
         if(this.talents==null){
-
+          alert('Please upload talents file.')
         } else if(this.jd==null){
-
+          alert('Please upload job description file.')
         } else {
 
           this.col=[
@@ -129,12 +98,6 @@ class App extends React.Component {
               return(<a href={params.value}>{params.value}</a>)
             })},
             {field:'Preview',headerName:'Preview',width:150,renderCell:(params => {
-              // console.log(params)
-              // const showPopup = ()=>{
-              //   var subject = localStorage.getItem('subject')
-              //   var content = localStorage.getItem('template')
-              //   alert(content)
-              // }
               return(
                 <Popup props={this.talents[params.id]}/>
               )
@@ -143,7 +106,6 @@ class App extends React.Component {
 
           this.row = this.mergeData(this.talents,this.jd);
 
-          //this.row=[{id:1,Email:'email',IOM:'iom',LinkedInURL:'https://www.google.com',Location:'location',Seniority:'sens',Talent_Name:'name',TechStack:'stack',Job1:'<a href="www.google.com">url</a>'}]
           this.setState({
             rows:this.row,
             columes:this.col
@@ -174,17 +136,14 @@ class App extends React.Component {
         list.push([score,j]);
       }
       list.sort(this.sortJob)
-      console.log(Math.min(6,list.length))
       for(var k = 1; k < Math.min(6,list.length); k++){
         var job = jd[list[k-1][1]];
-        //console.log(job)
         talents[i]["Job"+k+" Name"] = job['Job Name'];
         talents[i]["Job"+k+" Company"] = job['Company'];
         talents[i]["Job"+k+" Location"] = job['Location'];
         talents[i]["Job"+k+" URL"] = job['JobURL'];
       }
     }
-    //console.log(talents)
     return talents;
   }
 
@@ -211,7 +170,6 @@ class App extends React.Component {
           </Grid>
         </Grid>
         
-        {/* <MergedTable></MergedTable> */}
         <div className="mygrid">
           <MyGrid rows={this.state.rows}  columns={this.state.columes}/>
         </div>
