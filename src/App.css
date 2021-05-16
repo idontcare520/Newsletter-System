@@ -7,6 +7,20 @@
   pointer-events: none;
 }
 
+.loadButton{
+  display: block!important;
+  margin: 0 auto!important;
+  margin-top: 20px!important;
+}
+
+.noDisplay{
+  display: none;
+}
+
+.mygrid{
+  margin-top: 20px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
