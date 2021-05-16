@@ -76,7 +76,9 @@ class App extends React.Component {
             {field:'Talent_Name',headerName:'Talent_Name',width:200},
             {field:'Email',headerName:'Email',width:300},
             {field:'Location',headerName:'Location',width:250},
-            {field:'Seniority',headerName:'Seniority',width:150},
+            {field:'Seniority',headerName:'Seniority',width:150,renderCell:(params => {
+              return(params.value.split("_")[1])
+            })},
             {field:'TechStack',headerName:'TechStack',width:250},
             {field:'IOM',headerName:'IOM',width:150},
             {field:'Job1 URL',headerName:'Job1',width:100,renderCell:(params => {
